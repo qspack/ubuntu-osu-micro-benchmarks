@@ -12,4 +12,5 @@ RUN /usr/local/src/spack/bin/spack install --no-checksum \
             osu-micro-benchmarks@${SPACK_OSU_MICRO_BENCHMARKS_VERSION} \
             ^hwloc@${SPACK_HWLOC_VERSION} \
             ^openmpi@${SPACK_OPENMPI_VERSION}
-RUN useradd -s /bin/false -d /home/cluser -u 1000 -g 1000 cluser
+RUN groupadd -g 1000 clgrp \
+ && useradd -s /bin/false -d /home/cluser -u 1000 -g 1000 cluser
